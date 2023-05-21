@@ -82,7 +82,7 @@ Page({
       {
         s: "21:00",
         e: "21:45",
-        flag:true,
+        flag:false,
       },
     ],
 
@@ -213,6 +213,7 @@ Page({
       this.getTabBar()) {
       this.getQuote();
       this.getTime();
+      this.setTimeNowFlag();
       this.getTabBar().setData({
         selected: 0,
         flag: app.globalData.isShow
@@ -235,10 +236,11 @@ Page({
     const time = new Date();
     const mh = time.getHours();
     const mm = time.getMinutes();
+    const weekAndDay = this.getWeekAndDay();
     this.setData({
       durn: {
-        week: 13,
-        day: 3,
+        week:weekAndDay.week ,
+        day:weekAndDay.day,
         h:mh,
         m:mm,
       },
@@ -257,12 +259,24 @@ Page({
   inThisTime(sh,sm,eh,em) {
     const H = this.data.durn.h;
     const M = this.data.durn.m;
-    return (H>=sh && M>=sm) || (H<=eh && M<=em);
+    return (H>=sh && M>=sm) && (H<=eh && M<=em);
   },
 
   setTimeNowFlag() {
-    const len = this.data.date.length();
+    const len = this.data.date.length;
+    for(let i = 0;i<len;i++) {
+      const timeStr = this.data.date[i];
+      const realtime = this.str2RealTime(timeStr.s,timeStr.e);
+
+      this.data.date[i].flag = this.inThisTime(realtime[0],realtime[1],realtime[2],realtime[3])
+      // console.log(this.data.date[i]);
+    }
     //TODO completed it.
+  },
+
+  getWeekAndDay() {
+    //Todo completed it.
+    return {week:13,day:3};
   }
 
 })

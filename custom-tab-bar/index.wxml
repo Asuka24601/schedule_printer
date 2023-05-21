@@ -1,0 +1,21 @@
+<!--custom-tab-bar/index.wxml-->
+
+<view bindtap="tap" class="{{['cont',flag==false&&'down',flag==true&&'up']}}">
+</view>
+
+<view>
+  <view class="{{['navbar',flag==false&&'hide',flag==true&&'rhide']}}">
+    <view class="icon_bar bar1">
+      <view bindtap="switchTab" data-index="{{0}}" class="{{['icon','icon1', selected==0&&'select']}}"></view>
+    </view>
+    <view class="icon_bar bar2">
+      <view bindtap="switchTab" data-index="{{1}}" class="{{['icon', 'icon2', selected==1&&'select']}}"></view>
+    </view>
+    <view class="icon_bar bar3">
+      <view bindtap="switchTab" data-index="{{2}}" class="{{['icon', 'icon3', selected==2&&'select']}}"></view>
+    </view>
+    <view class="icon_bar bar4">
+      <view bindtap="switchTab" data-index="{{3}}" class="{{['icon', 'icon4', selected==3&&'select']}}"></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "stoic-quotes": "^1.1.0",
+    "wx-watch": "^0.0.6"
+  }
+}

@@ -1,0 +1,87 @@
+<!--index.wxml-->
+<!-- <text>pages/index/index.wxml</text> -->
+<image class="backgroundimage" src="/static/image/fw1201.jpg" mode="" />
+
+<swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}">
+  <swiper-item>
+    <view class="cent">
+      <image src="/static/image/mupai2.png" class="breastplate" mode="" />
+      <view class="topbar">
+        <view>
+          第{{durn.week}}周，第{{durn.day}}天！
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <swiper-item>
+    <view class="quotebox">
+      <image src="/static/image/mupai.png" class="breastplate1" mode="" />
+      <view class="topbar1">
+        <view>
+          {{quote.text}}
+        </view>
+        <view>
+          --{{quote.author}}
+        </view>
+      </view>
+
+
+    </view>
+
+  </swiper-item>
+
+  <swiper-item>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque numquam dicta voluptates dolorum, eaque nostrum blanditiis molestias doloribus asperiores ducimus aliquid, recusandae accusantium ipsa quod alias eos minus, illum vel!
+  </swiper-item>
+</swiper>
+
+<view class="main">
+
+  <view>
+    <view class="list_cent">
+      <view class="top_class">
+        <view class="top_class_item">
+          时间
+        </view>
+        <view class="top_class_item">
+          信息
+        </view>
+      </view>
+
+      <view class="ctx">
+        <view class="left_bar">
+          <view wx:for="{{date}}" wx:key="item" class="{{['time_table_item','table_item',item.flag?'now_class':'']}}">
+            <text>
+              {{index+1}}
+              {{item.s}}
+              {{item.e}}
+            </text>
+          </view>
+        </view>
+        <view class="right_bar">
+          <view wx:for="{{list}}" wx:key="item" class="info_table_item table_item">
+            <View wx:if="{{item.name=='None'}}" class="dont_have">
+              <text>
+                没有课，自行安排时间吧！
+              </text>
+            </View>
+            <view wx:else class="have_class">
+              <text>
+                {{item.name}}@{{item.curriculum.location}}
+
+                {{item.teacher}}
+              </text>
+            </view>
+
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+<view class="bottom_class">
+</view>

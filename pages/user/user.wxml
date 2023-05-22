@@ -1,48 +1,88 @@
 <!--pages/user/user.wxml-->
 <!-- <text>pages/user/user.wxml</text> -->
+<view class="container">
 
-<image class="topimage" src="{{image.topimage}}" mode="" />
-<view class="cent">
-  <view class="info_head">
-    <view class="left_part">
-      <view class="view_box">
-        <image class="headIcon" src="{{image.headIcon}}" mode="widthFix" />
+  <view class="{{['main', showConfigItems&&'active']}}">
+    <image class="topimage" src="{{image.topimage}}" mode="" />
+    <view class="cent">
+      <view class="info_head">
+        <view class="left_part">
+          <view class="view_box">
+            <image class="headIcon" src="{{image.headIcon}}" mode="widthFix" />
+          </view>
+
+        </view>
+        <view class="right_part">
+          <view class="right_part_text" style="{{'font-size:'+greeting_len+';'}}">
+            {{greeting}}
+          </view>
+          <view class="right_part_tap">
+            <view wx:if="{{userSet.isOwn}}" class="{{['right_part_tap_item','config_item',showConfigItems&&'opening']}}" bindtap="intoConfig">
+              ...
+            </view>
+            <view wx:if="{{!userSet.isOwn}}" class="right_part_tap_item" bindtap="intoChat">
+              chat
+            </view>
+            <view wx:if="{{!userSet.isOwn}}" class="right_part_tap_item" bindtap="intoFollow">
+              + follow
+            </view>
+          </view>
+        </view>
       </view>
+      <view class="mid_part">
+        <view class="username">
+          {{userInfo.name}}，<label class="username_timer">{{timer}}</label>
+          <view class="user_info_icon username_icon"></view>
 
-    </view>
-    <view class="right_part">
-      <view class="right_part_text" style="{{'font-size:'+greeting_len+';'}}">
-        {{greeting}}
+          <view wx:if="{{userSet.showGender}}" class="{{['user_info_icon', (userInfo.gender==='man')?'usergender_icon_man':'',(userInfo.gender==='woman')?'usergender_icon_woman':'',(userInfo.gender==='unknow')?'usergender_icon_unknow':'']}}"></view>
+        </view>
+        <view class="user_info">
+          <view class="user_info_item">
+            {{userInfo.major}}
+          </view>
+          <view class="user_info_item">
+            {{userInfo.class}}
+          </view>
+          <view wx:if="{{userSet.showID}}" class="user_info_item">
+            {{userInfo.id}}
+          </view>
+        </view>
+        <view class="user_profile">
+          <label class="lab lab_left">"</label>
+          <view class="profile_text">
+            {{userInfo.profile}}
+          </view>
+          <label class="lab lab_right">"</label>
+        </view>
+        <view class="followAndMoments">
+          <view class="context">
+            {{userInfo.moments}} moments
+          </view>
+          <view class="context">
+            {{userInfo.following}} following
+          </view>
+          <view class="context">
+            {{userInfo.followers}} followers
+          </view>
+
+        </view>
+
       </view>
-
     </view>
   </view>
-  <view class="mid_part">
-    <view class="username">
-      {{userInfo.name}}
-      <view class="user_info_icon username_icon"></view>
 
-      <view wx:if="{{userSet.showGender}}" class="{{['user_info_icon', (userInfo.gender==='man')?'usergender_icon_man':'',(userInfo.gender==='woman')?'usergender_icon_woman':'',(userInfo.gender==='unknow')?'usergender_icon_unknow':'']}}"></view>
+  <view class="belowInterface">
+    <view class="opentions" bindtap="intoProfileSet">
+      个人信息
     </view>
-    <view class="user_info">
-      <view class="user_info_item">
-        {{userInfo.major}}
-      </view>
-      <view class="user_info_item">
-        {{userInfo.class}}
-      </view>
-      <view wx:if="{{userSet.showID}}" class="user_info_item">
-        {{userInfo.id}}
-      </view>
+    <view class="opentions" bindtap="intoFunctionSet">
+      功能设置
     </view>
-    <view class="user_profile">
-    <label class="lab lab_left">"</label>
-      <view class="profile_text">
-        {{userInfo.profile}}
-      </view>
-      <label class="lab lab_right">"</label>
+    <view class="opentions" bindtap="intoOtherSet">
+      其他设置
     </view>
-
-
+    <view class="opentions" bindtap="outConfig">
+      退出
+    </view>
   </view>
 </view>

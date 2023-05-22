@@ -7,11 +7,13 @@ Page({
       topimage:"/static/image/EVA3.png",
       headIcon:"/static/image/sfk09.jpg"
     },
+    showConfigItems:false,
     userSet: {
       showID:true,
       showGender:true,
       showClass:true,
       showMajor:true,
+      isOwn:true
     },
     userInfo:{
       name:"AntiGone",
@@ -20,7 +22,11 @@ Page({
       id:"1111111111111",
       gender:"woman",
       profile:"霜冻中复苏的我们，将前几章遗忘，煎熬不止的灵魂重生，将至天晴，世界的青春，是盛夏。",
+      following:31,
+      followers:59,
+      moments:3367,
     },
+    timer:"",
     greeting:"",
     greeting_len:"",
     greetings:{
@@ -48,6 +54,7 @@ Page({
 
   onShow() {
     this.getGreeting();
+    this.getTimer();
     if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({
@@ -60,12 +67,66 @@ Page({
   getGreeting() {
     const greeting_ = this.data.greetings.seasons.summer;
     const len = (100 / 21 * 15 / (greeting_.length)) * 0.9;
-
     this.setData({
       greeting: greeting_,
       greeting_len: String(len)+'vw',
     })
-
   },
+
+  getTimer() {
+    const t = new Date();
+    const h = t.getHours();
+    const daytime_ = this.data.greetings.daytime;
+    let words = "";
+    if (h>=6 && h<11) words = daytime_.morning;
+    else if (h>=12 && h<14) words =daytime_.midday;
+    else if (h>=14 && h<17) words = daytime_.afternoom;
+    else if(h>=17 && h<19) words = daytime_.sunset;
+    else if(h>=19 && h<24) words = daytime_.evening;
+    else words = daytime_.midnignt;
+    this.setData({
+      timer:words,
+    })
+  },
+
+  intoConfig() {
+    this.setData({
+      showConfigItems:!this.data.showConfigItems,
+    });
+    console.log('config...');
+  },
+
+  outConfig() {
+    console.log('outConfig...');
+    this.intoConfig();
+  },
+
+  intoProfileSet() {
+    console.log('profileset...')
+  },
+
+  intoFunctionSet() {
+    console.log('functionset...')
+  },
+
+  intoOtherSet() {
+    console.log('otherset...')
+  },
+
+  intoChat() {
+    console.log('chat...')
+  },
+
+  intoFollow() {
+    console.log('follow..')
+  },
+
+  chilckOwn() {
+    let userSet_ = this.data.userSet;
+    userSet_.isOwn = app.globalData.isOwn;
+    this.data.setData({
+      userSet:userSet_,
+    })
+  }
 
 })

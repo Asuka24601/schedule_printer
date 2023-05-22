@@ -5,5 +5,6 @@ App({
   },
   globalData: {
     isShow:true,
+    isOwn:true,
   }
 })

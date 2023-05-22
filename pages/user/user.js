@@ -6,24 +6,48 @@ Page({
     image:{
       topimage:"/static/image/EVA3.png",
       headIcon:"/static/image/sfk09.jpg"
-    }
+    },
+    userSet: {
+      showID:true,
+      showGender:true,
+      showClass:true,
+      showMajor:true,
+    },
+    userInfo:{
+      name:"AntiGone",
+      class:"9999级9班",
+      major:"软件工程",
+      id:"1111111111111",
+      gender:"woman",
+      profile:"霜冻中复苏的我们，将前几章遗忘，煎熬不止的灵魂重生，将至天晴，世界的青春，是盛夏。",
+    },
+    greeting:"",
+    greeting_len:"",
+    greetings:{
+      seasons:{
+        spring: "冬眠的春风已渐渐苏醒，我从没要求过，你给我，那无法触及的距离。",
+        summer:"那个夏天，光阴会记得，一个人曾爱上另一个人。",
+        full:"秋是第二个春，此时，每一片叶子都是一朵鲜花。",
+        winter:"在隆冬，我终于知道，我身上有一个不可战胜的夏天。",
+      },
+      daytime:{
+        morning:"早上好！",
+        midday:"中午好！",
+        afternoom:"下午好！",
+        sunset:"太阳下山了...",
+        evening:"晚上好！",
+        midnignt:"夜深了...",
+      },
+      special:{
+        sp:{
+          sp1:"霜冻中复苏的我们，将前几章遗忘，煎熬不止的灵魂重生，将至天晴，世界的青春，是盛夏。"
+        }
+      },
+    },
   },
 
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow() {
+    this.getGreeting();
     if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({
@@ -33,38 +57,15 @@ Page({
       }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+  getGreeting() {
+    const greeting_ = this.data.greetings.seasons.summer;
+    const len = (100 / 21 * 15 / (greeting_.length)) * 0.9;
+
+    this.setData({
+      greeting: greeting_,
+      greeting_len: String(len)+'vw',
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })

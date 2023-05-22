@@ -5,9 +5,8 @@
 <swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}">
   <swiper-item>
     <view class="cent">
-      <image src="/static/image/mupai2.png" class="breastplate" mode="" />
       <view class="topbar">
-        <view>
+        <view class="topbar_text">
           第{{durn.week}}周，第{{durn.day}}天！
         </view>
       </view>
@@ -16,23 +15,26 @@
 
   <swiper-item>
     <view class="quotebox">
-      <image src="/static/image/mupai.png" class="breastplate1" mode="" />
-      <view class="topbar1">
-        <view>
-          {{quote.text}}
+      <view class="topbar">
+        <view class="quote_text">
+          <view>
+            {{quote.text}}
+          </view>
+          <view>
+            --{{quote.author}}
+          </view>
         </view>
-        <view>
-          --{{quote.author}}
-        </view>
-      </view>
 
+      </view>
 
     </view>
 
   </swiper-item>
 
   <swiper-item>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque numquam dicta voluptates dolorum, eaque nostrum blanditiis molestias doloribus asperiores ducimus aliquid, recusandae accusantium ipsa quod alias eos minus, illum vel!
+    <view class="topbar">
+      <image class="topbarimage_class" src="{{image.topbarImage}}" mode="heightFix" />
+    </view>
   </swiper-item>
 </swiper>
 
@@ -40,18 +42,18 @@
 
   <view>
     <view class="list_cent">
-      <view class="top_class">
+      <view class="ctx">
         <view class="top_class_item">
           时间
         </view>
         <view class="top_class_item">
-          信息
+          课程信息
         </view>
       </view>
 
       <view class="ctx">
-        <view class="left_bar">
-          <view wx:for="{{date}}" wx:key="item" class="{{['time_table_item','table_item',item.flag?'now_class':'']}}">
+        <view class="left_bar bar_item">
+          <view wx:for="{{date}}" wx:key="item" class="{{['time_table_item','table_item',item.flag?'now_class':'', item.done?'isdone':'']}}">
             <text>
               {{index+1}}
               {{item.s}}
@@ -59,7 +61,7 @@
             </text>
           </view>
         </view>
-        <view class="right_bar">
+        <view class="right_bar bar_item">
           <view wx:for="{{list}}" wx:key="item" class="info_table_item table_item">
             <View wx:if="{{item.name=='None'}}" class="dont_have">
               <text>

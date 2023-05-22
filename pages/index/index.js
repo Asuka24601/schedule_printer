@@ -1,12 +1,14 @@
 // index.js
 // 获取应用实例
 const app = getApp();
+const stoicQuotes = require('../../miniprogram_npm/stoic-quotes/index');
 const stoicQuote = require('../../miniprogram_npm/stoic-quotes/index');
 
 Page({
   data: {
     image:{
-      background:"/static/image/fw1201.jpg",
+      background:"/static/image/bitch.jpg",
+      topbarImage:"/static/image/EVAI.png",
     },
     text: {
       title: "curriculum",
@@ -36,56 +38,67 @@ Page({
         s: "08:15",
         e: "09:00",
         flag: false,
+        done:false,
       },
       {
         s: "09:10",
         e: "10:05",
         flag: false,
+        done:false,
       },
       {
         s: "10:15",
         e: "11:00",
         flag: false,
+        done:false,
       },
       {
         s: "11:10",
         e: "11:55",
         flag: false,
+        done:false,
       },
       {
         s: "14:50",
         e: "15:35",
         flag: false,
+        done:false,
       },
       {
         s: "15:45",
         e: "16:30",
         flag: false,
+        done:false,
       },
       {
         s: "16:40",
         e: "17:25",
         flag: false,
+        done:false,
       },
       {
         s: "17:35",
         e: "18:20",
         flag: false,
+        done:false,
       },
       {
         s: "19:10",
         e: "19:55",
         flag: false,
+        done:false,
       },
       {
         s: "20:05",
         e: "20:50",
         flag: false,
+        done:false,
       },
       {
         s: "21:00",
         e: "21:45",
         flag: false,
+        done:false,
       },
     ],
 
@@ -227,7 +240,10 @@ Page({
   },
 
   getQuote() {
-    const temp = stoicQuote();
+    let temp = stoicQuote();
+    while (temp.length>160) {
+      temp = stoicQuotes();
+    }
     this.setData({
       quote: {
         text: temp.quote,
@@ -265,6 +281,12 @@ Page({
     return (H >= sh && M >= sm) && (H <= eh && M <= em);
   },
 
+  isDone(eh, em) {
+    const H = this.data.durn.h;
+    const M = this.data.durn.m;
+    return (H == eh && M > em) || (H>eh);
+  },
+
   setTimeNowFlag() {
     const len = this.data.date.length;
     var date_ = this.data.date;
@@ -275,8 +297,9 @@ Page({
 
       const flag_ = this.inThisTime(realtime[0], realtime[1], realtime[2], realtime[3]);
       date_[i].flag = flag_;
+      const done_ = this.isDone(realtime[2],realtime[3]);
+      date_[i].done = done_;
     }
-
     this.setData({
       date: date_,
     })

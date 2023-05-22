@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <!-- <text>pages/index/index.wxml</text> -->
-<image class="backgroundimage" src="/static/image/fw1201.jpg" mode="" />
+<image class="backgroundimage" src="{{image.background}}" mode="" />
 
 <swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}">
   <swiper-item>

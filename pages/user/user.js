@@ -2,17 +2,13 @@
 const app = getApp();
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    image:{
+      topimage:"/static/image/EVA3.png",
+      headIcon:"/static/image/sfk09.jpg"
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad(options) {
 
   },

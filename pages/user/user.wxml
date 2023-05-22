@@ -1,2 +1,20 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<!-- <text>pages/user/user.wxml</text> -->
+
+<image class="topimage" src="{{image.topimage}}" mode=""/>
+<view class="cent">
+  <view class="info_head">
+    <view class="left_part">
+      <view class="view_box">
+        <image class="headIcon" src="{{image.headIcon}}" mode="widthFix"/>
+      </view>
+      
+    </view>
+    <view class="right_part">
+      <view>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia non ullam modi blanditiis labore deserunt libero sit atque maxime dolor in doloribus sed perspiciatis ipsam commodi, tempore beatae quaerat. Repellendus?
+      </view>
+      
+    </view>
+  </view>
+</view>

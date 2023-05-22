@@ -1,1 +1,47 @@
 /* pages/user/user.wxss */
+
+image.topimage {
+  position: relative;
+  width: 100%;
+}
+
+.cent {
+  position: relative;
+  width: 100%;
+}
+
+.info_head {
+  display: grid;
+  grid-template-columns: 6fr 15fr;
+  height: calc(100vw / 21 * 6);
+  width: 100%;
+  overflow: hidden;
+  margin-top: -7.5vh;
+}
+
+.info_head .left_part {
+  position: relative;
+  width: 100%;
+  height: calc(100vw / 21 * 6);
+}
+
+.info_head .right_part {
+  text-overflow:clip;
+  height: calc(100vw / 21 * 6);
+  width: 100%;
+  margin-top: 7.5vh;
+}
+
+.info_head .left_part .view_box {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  border: white solid 3px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 1vh 5vw 1vh 5vw;
+}
+
+.headIcon {
+  width: 100%;
+}

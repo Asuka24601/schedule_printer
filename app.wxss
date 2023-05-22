@@ -1,4 +1,9 @@
 /**app.wxss**/
+:root{ 
+  --user-topinfo-lp:6fr;
+  --user-topinfo-rp:15fr;
+} 
+
 .container {
   height: 100%;
   display: flex;

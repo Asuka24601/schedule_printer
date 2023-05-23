@@ -17,8 +17,17 @@
 .belowInterface .opentions {
   position: relative;
   margin-top: 50%;
-  font-weight: bolder;
+  font-weight: bold;
   text-shadow: .1px .1px 0.75px black;
+
+  border: 1.5px solid black;
+  box-sizing: border-box;
+  width: 25vw;
+  height: 7vh;
+  line-height: 7vh;
+  text-align: center;
+  border-radius: 10% ;
+  box-shadow: black .1px .1px .5px;
 }
 
 .main {
@@ -26,14 +35,14 @@
   z-index: 1000;
   position: absolute;
   transform: perspective(2500px) rotateY(0deg);
-  transition: 0.5s linear;
+  transition: 0.25s linear;
   min-height: 100vh;
   width: 100vw;
 }
 
 .main.active {
   transform: perspective(1500px) rotateY(45deg) translateX(-20vw);
-  transition: 0.5s linear;
+  transition: 0.25s linear;
   box-shadow: 0 0 10px black;
 }
 
@@ -207,13 +216,15 @@
 }
 
 .mid_part .user_profile .profile_text {
-  text-align: left;
+  text-align: center;
+  /* overflow: hidden; */
   font-style: oblique;
   font-size: small;
   font-weight: bolder;
   color: rgba(182, 182, 182, 0.75);
   text-shadow: 0.5px 0.5px 0.5px rgb(182, 182, 182);
   align-self: center;
+  white-space: pre-line;
 }
 
 .user_profile .lab {
@@ -244,4 +255,50 @@
   font-size: small;
   font-weight: bolder;
   text-shadow: .2px .2px .2px black;
+}
+
+.construction {
+  display: flex;
+  flex-direction: column;
+  margin: 2vh 3vw auto 3vw;
+}
+
+.construction .swiper_opentions {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: black 0px 0px .01px;
+}
+
+.construction .swiper_opentions .op {
+  flex: 1;
+  color: rgb(197, 196, 196);
+  padding-bottom: 1vh;
+}
+
+.construction .swiper_opentions .op.op_active {
+  color: black;
+  border-bottom: solid black 2px;
+  /* transition: 0.25s linear; */
+}
+
+.bar {
+  width: 100%;
+  height: 1px;
+  border: rgb(197, 196, 196);
+  box-sizing: border-box;
+  background-color: rgb(197, 196, 196);
+  margin-bottom: 2vh;
+}
+
+.swip {
+  background-color: rgb(90, 211, 248);
+  color: white;
+  width: 100%;
+}
+.swip .vi_item {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
 }

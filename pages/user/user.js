@@ -7,6 +7,14 @@ Page({
       topimage:"/static/image/EVA3.png",
       headIcon:"/static/image/sfk09.jpg"
     },
+    swiper_ops: {
+      indicatorDots: false,
+      vertical: false,
+      autoplay: false,
+      interval: 2000,
+      duration: 500,
+      index:0,
+    },
     showConfigItems:false,
     userSet: {
       showID:true,
@@ -16,6 +24,7 @@ Page({
       isOwn:true
     },
     userInfo:{
+      userid:1,
       name:"AntiGone",
       class:"9999级9班",
       major:"软件工程",
@@ -127,6 +136,19 @@ Page({
     this.data.setData({
       userSet:userSet_,
     })
-  }
+  },
 
+  switch2idx(e) {
+    const idx = parseInt(e.target.dataset.index);
+    let temp = this.data.swiper_ops;
+    temp.index = idx;
+    this.setData({
+      swiper_ops:temp,
+    })
+  },
+
+  onTouchMove(e) {
+    // console.log(e)
+    return;
+  },
 })

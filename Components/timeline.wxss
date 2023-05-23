@@ -1,0 +1,6 @@
+/* Components/timeline.wxss */
+
+.list {
+  display: flex;
+  flex-direction: column;
+}

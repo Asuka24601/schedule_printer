@@ -1,0 +1,9 @@
+<!--Components/timeline.wxml-->
+<!-- <text>Components/timeline.wxml</text> -->
+<view class="container">
+  <view class="list">
+    <view wx:for="{{userTimeline}}" wx:key="item">
+      {{item.text}}
+    </view>
+  </view>
+</view>

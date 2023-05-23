@@ -35,6 +35,7 @@ Page({
       followers:59,
       moments:3367,
     },
+    timeline_len:0,
     timer:"",
     greeting:"",
     greeting_len:"",
@@ -151,4 +152,12 @@ Page({
     // console.log(e)
     return;
   },
+
+  getTimelineLen(e) {
+    const item = e.detail;
+    const height_ = item.nl * 20 + item.hl * 40;
+    this.setData({
+      timeline_height:height_,
+    })
+  }
 })

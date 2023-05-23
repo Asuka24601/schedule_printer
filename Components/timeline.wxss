@@ -3,4 +3,42 @@
 .list {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.list .i_item {
+  width: 100%;
+  margin-bottom: 2vh;
+  text-align: left;
+  padding: 1vh 1vw 1vh 1vw;
+}
+
+.image_cent {
+  width: 100%;
+  background-color: burlywood;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image_cent .image_cent_view {
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  white-space:nowrap;
+}
+
+.image_cent_view .image_cent_view_item {
+  flex: 1;
+  width: 100%;
+  display: inline-block;
+}
+
+.image_cent_view .image_cent_view_item .view_image {
+  z-index: 9999999;
+  /* height: 100%; */
+}
+

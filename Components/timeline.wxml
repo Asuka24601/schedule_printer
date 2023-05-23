@@ -2,8 +2,22 @@
 <!-- <text>Components/timeline.wxml</text> -->
 <view class="container">
   <view class="list">
-    <view wx:for="{{userTimeline}}" wx:key="item">
+    <view class="i_item" wx:for="{{userTimeline}}" wx:key="item">
+      <view class="time_stamp">
+        {{timelineRealtime[index]}}
+      </view>
+      <view wx:if="{{item.imgs.length>0}}">
+        <view class="image_cent">
+          <scroll-view class="image_cent_view" scroll-x="true" enable-flex="true" scroll-left="false">
+          <view id="scview_{{index}}" class="image_cent_view_item" wx:for="{{item.imgs}}" wx:for-item="item_img">
+            <image class="view_image" src="{{item_img}}" mode='heightFix'/>
+          </view>
+          </scroll-view>
+        </view>
+      </view>
+      <view>
       {{item.text}}
+    </view>
     </view>
   </view>
 </view>

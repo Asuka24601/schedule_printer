@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "stoic-quotes": "^1.1.0",
-    "time-stamp": "^2.2.0"
+    "date-str-timestamp": "^1.0.2",
+    "stoic-quotes": "^1.1.0"
   }
 }

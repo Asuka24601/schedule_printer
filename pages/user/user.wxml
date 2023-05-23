@@ -80,9 +80,9 @@
           <view class="bar">
           </view>
 
-          <swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}" current="{{swiper_ops.index}}">
+          <swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}" current="{{swiper_ops.index}}"  style="min-height:{{timeline_height}}vh">
             <swiper-item class="vi_item" catchtouchmove='onTouchMove'>
-              <timeline id="timeline" userinfo="{{userInfo}}"></timeline>
+              <timeline id="timeline" userinfo="{{userInfo}}" binditemlen="getTimelineLen"></timeline>
             </swiper-item>
             <swiper-item class="vi_item" catchtouchmove='onTouchMove'>
               1

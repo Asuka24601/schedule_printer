@@ -41,7 +41,7 @@
             {{userInfo.major}}
           </view>
           <view class="user_info_item">
-            {{userInfo.class}}
+            {{userInfo.s_class}}
           </view>
           <view wx:if="{{userSet.showID}}" class="user_info_item">
             {{userInfo.id}}

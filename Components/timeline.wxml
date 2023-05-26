@@ -3,21 +3,32 @@
 <view class="container">
   <view class="list">
     <view class="i_item" wx:for="{{userTimeline}}" wx:key="item">
-      <view class="time_stamp">
-        {{timelineRealtime[index]}}
+      <view class="time_stamp headline">
+      <view>
+        {{timelineRealtime[index][0]}}
+        <!-- {{timelineRealtime[index][1]}} -->
       </view>
-      <view wx:if="{{item.imgs.length>0}}">
+        <view class="icon_cont">
+          <view class="more_icon">
+          </view>
+        </view>
+      </view>
+      <view class="imgs_main_cent" wx:if="{{item.imgs.length>0}}">
         <view class="image_cent">
           <scroll-view class="image_cent_view" scroll-x="true" enable-flex="true" scroll-left="false">
-          <view id="scview_{{index}}" class="image_cent_view_item" wx:for="{{item.imgs}}" wx:for-item="item_img">
-            <image class="view_image" src="{{item_img}}" mode='heightFix'/>
-          </view>
+            <view id="scview_{{index}}" class="image_cent_view_item" wx:for="{{item.imgs}}" wx:for-item="item_img">
+              <image class="view_image" src="{{item_img}}" mode='heightFix' />
+            </view>
           </scroll-view>
         </view>
       </view>
-      <view>
-      {{item.text}}
-    </view>
+      <view class="item_text main_text">
+        {{item.text}}
+      </view>
+      <view class="item_text subline">
+        -- {{userInfo.name}}, at {{timelineRealtime[index][1]}}.
+      </view>
+      <view class="bar"></view>
     </view>
   </view>
 </view>

@@ -7,6 +7,13 @@
   justify-content: center;
 }
 
+.bar {
+  width: 100%;
+  height: 2px;
+  background-color: gray;
+  opacity: 0.3;
+}
+
 .list .i_item {
   width: 100%;
   margin-bottom: 2vh;
@@ -14,21 +21,62 @@
   padding: 1vh 1vw 1vh 1vw;
 }
 
+.imgs_main_cent {
+  padding-top: 1vh;
+  /* margin: auto -3vw auto -3vw; */
+  overflow: visible;
+}
+
+.time_stamp,
+.item_text {
+  padding: 1vh 5vw 2vh 1vw;
+  color: black;
+  font-weight: bold;
+  font-family: 'Centaur','Segoe UI Emoji';
+  font-size: 1.1rem;
+  /* text-shadow: black 0.25px 0.25px 0.25px; */
+}
+
+.time_stamp.headline {
+  font-size: x-large;
+  display: flex;
+  flex-direction: row;
+}
+
+.item_text.subline {
+  color: gray;
+  font-size: small;
+  text-align: end;
+  font-style: italic;
+  padding-right: 5vw;
+}
+
+.item_text.main_text {
+  font-family: '等线','Yu Gothic UI Light';
+  font-weight: normal;
+  white-space:pre-line;
+  word-spacing:1px;
+  line-height: 3.5vh;
+  overflow: auto;
+}
+
 .image_cent {
   width: 100%;
-  background-color: burlywood;
+  /* background-color: burlywood; */
   display: flex;
   align-items: center;
   justify-content: center;
+  /* position: absolute; */
 }
 
 .image_cent .image_cent_view {
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   white-space:nowrap;
+  /* position: absolute; */
 }
 
 .image_cent_view .image_cent_view_item {
@@ -40,5 +88,21 @@
 .image_cent_view .image_cent_view_item .view_image {
   z-index: 9999999;
   /* height: 100%; */
+}
+
+.icon_cont {
+  width: 25px;
+  height: 25px;
+  /* margin: 1.5vh 0vw 0vh 3vw; */
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  margin-left: auto;
+}
+
+.more_icon {
+  width: 25px;
+  height: 25px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAJxJREFUSEtjZKAxYKSx+QyjFhAM4dEgGmlB5ODgIPD9+3dDTk7O8wcOHPiA7n9LS0vDP3/+/D99+vQFdDlcelFSkYWFRdH///8F/v///+HUqVN9yIaADP/3718gSIyJiWn98ePHzyPL49KL1QJGRsYPJ06cIMsCdL0oFhATRCBXo7seJEZUEBFMc2QoGM3JBANtNIhGg4hgCBBUAABkoGIZ5omUIAAAAABJRU5ErkJggg==');
 }
 

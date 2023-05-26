@@ -96,6 +96,7 @@ Page({
 
   getGreeting() {
     const greeting_ = this.data.greetings.seasons.summer;
+    
     const len = (100 / 21 * 15 / (greeting_.length)) * 0.9;
     this.setData({
       greeting: greeting_,
@@ -174,11 +175,15 @@ Page({
   },
 
   getTimelineLen(e) {
-    const item = e.detail;
-    const height_ = item.nl * 20 + item.hl * 40;
-    this.setData({
-      timeline_height: height_,
+    // const item = e.detail;
+    wx.createSelectorQuery().select('#timeline').boundingClientRect(res => {
+      // console.log(res)
+      this.setData({
+      timeline_height: res.height+60,
     })
+    }).exec(resc=> {
+      // console.log(resc);
+    });
   },
 
   // submit: function (e) {

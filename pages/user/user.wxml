@@ -80,7 +80,7 @@
           <view class="bar">
           </view>
 
-          <swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}" current="{{swiper_ops.index}}"  style="min-height:{{timeline_height}}vh">
+          <swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}" current="{{swiper_ops.index}}"  style="min-height:{{timeline_height}}px">
             <swiper-item class="vi_item" catchtouchmove='onTouchMove'>
               <timeline id="timeline" userinfo="{{userInfo}}" binditemlen="getTimelineLen"></timeline>
             </swiper-item>
@@ -91,6 +91,9 @@
               2
             </swiper-item>
           </swiper>
+          <view>
+          再往下滑就不礼貌了...
+          </view>
         </view>
       </view>
     </view>

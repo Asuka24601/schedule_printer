@@ -1,5 +1,7 @@
 // pages/select/select.js
 const app = getApp();
+const leapyear = require("../../miniprogram_npm/smltime/index");
+const monthDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 Page({
 
@@ -7,8 +9,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    style_temlpate:"",
-    week_day: ["05/29", "05/30", "05/31", "06/01", "06/02", "06/03", "06/04"],
+    images: {
+      backgroundImg: "/static/image/bitch.jpg",
+    },
+    style_temlpate: "",
+    week_day: [],
+    o_week_day: [],
     week_name: ["Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"],
     this_week: 0,
     durn: {
@@ -302,12 +308,76 @@ Page({
 
   },
 
+  getWeekDay() {
+    //测试用例
+    const wd = ["05/29", "05/30", "05/31", "06/01", "06/02", "06/03", "06/04"];
+    this.setData({
+      week_day: wd,
+      o_week_day: wd,
+    })
+  },
+
+  setWeekDay(idx) {
+    let owd = this.data.week_day;
+    const isP = leapyear.default.leapyear;
+    const b = isP((new Date()).getFullYear());
+
+    if (idx == 0) {
+      owd = this.data.o_week_day;
+    }
+    else if (idx == 1) {
+      let tmp = owd[0].split('/');
+      let m = parseInt(tmp[0]);
+      let d = parseInt(tmp[1]);
+      for (let i = 1; i <= 7; i++) {
+        let tmp = owd[i-1].split('/');
+      let m = parseInt(tmp[0]);
+      let d = parseInt(tmp[1]);
+        d += 7;
+        if (m == 2 && b && d > monthDay[m - 1] + 1) {
+          m += 1;
+          d = (d - (monthDay[m - 1] + 1));
+        }
+        else if (d > monthDay[m - 1]) {
+          m = (m + 1) % 13;
+          if (m == 0) m = 1;
+          d = (d - (monthDay[m - 1] + 1));
+        }
+        owd[i - 1] = (m >= 10 ? m.toString() : `0${m}`) + '/' + (d >= 10 ? d.toString() : `0${d}`);
+      }
+    }
+    else {
+      
+      for (let i = 7; i >= 1; i--) {
+        let tmp = owd[i-1].split('/');
+      let m = parseInt(tmp[0]);
+      let d = parseInt(tmp[1]);
+        d -= 7;
+        if (m == 3 && b && d <= 0) {
+          m -= 1;
+          d = 29+d;
+        }
+        else if (d <= 0) {
+          m -= 1;
+          if (m == 0) m = 12
+          d = monthDay[m - 1]+d;
+        }
+        owd[i - 1] = (m >= 10 ? m.toString() : `0${m}`) + '/' + (d >= 10 ? d.toString() : `0${d}`);
+      }
+    }
+
+    console.log(owd);
+    this.setData({
+      week_day: owd,
+    })
+  },
+
   setTemplate() {
-    const base_top = '"a b c d e f g h" 10vh\n';
+    const base_top = '"a b c d e f g h" 6vh\n';
 
     let base_main = '';
 
-    const base_bottle = '/10vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw';
+    const base_bottle = '/12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw';
 
     const len = this.data.table_time.length;
 
@@ -320,11 +390,43 @@ Page({
     // console.log(style_temlpate);
 
     this.setData({
-      style_temlpate:style_temlpate_,
+      style_temlpate: style_temlpate_,
     })
 
   },
 
+  intoleft() {
+    console.log("into left...");
+    const nw = this.data.this_week - 1;
+    if (nw > 0) {
+      this.setData({
+        this_week: nw
+      })
+      this.getCurrretTable(nw);
+      this.setWeekDay(-1);
+    }
+  },
+  intoright() {
+    console.log("into right...")
+    const nw = this.data.this_week + 1;
+    if (nw < 24) {
+      this.setData({
+        this_week: nw
+      })
+      this.getCurrretTable(nw);
+      this.setWeekDay(1);
+    }
+  },
+  goback() {
+    if (this.data.this_week == this.data.durn.week) return;
+    console.log("go back...")
+    const nw = this.data.durn.week;
+    this.setData({
+      this_week: nw
+    })
+    this.getCurrretTable(nw);
+    this.setWeekDay(0);
+  },
 
 
   /**
@@ -332,6 +434,7 @@ Page({
    */
   onLoad(options) {
     this.getTable();
+    this.getWeekDay();
   },
 
   /**

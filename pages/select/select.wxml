@@ -1,34 +1,37 @@
 <!--pages/select/select.wxml-->
 <!-- <text>pages/select/select.wxml</text> -->
+<image class="backgroundimage" src="{{images.backgroundImg}}" mode="" />
+
+<view class="lever">
+  <view class="icon_cont" bindtap="intoleft">
+    <view class="left_icon">
+    </view>
+  </view>
+  <view class="icon_cont" bindtap="goback">
+    <view class="mid_icon">
+    </view>
+  </view>
+  <view class="icon_cont" bindtap="intoright">
+    <view class="right_icon">
+    </view>
+  </view>
+</view>
+
 <view class="container">
-  <!-- <view class="lever">
-    <view class="icon_cont">
-      <view class="left_icon">
-      </view>
-    </view>
-    <view class="icon_cont">
-      <view class="mid_icon">
-      </view>
-    </view>
-    <view class="icon_cont">
-      <view class="right_icon">
-      </view>
-    </view>
-  </view> -->
   <view class="table_grid table_area" style="grid-template: {{style_temlpate}};">
-    <view class="top_bar_items">
+    <view class="top_bar_items top_bar_items_out">
       {{this_week}}
     </view>
-    <view class="top_bar_items" wx:for="{{week_day}}" wx:key="item">
-    <view class="top_bar_items_up">
-      {{week_name[index]}}
-    </view>
-    <view class="top_bar_items_down">
-      {{item}}      
-    </view>
+    <view class="top_bar_items top_bar_items_out" wx:for="{{week_day}}" wx:key="item">
+      <view class="top_bar_items_up">
+        {{week_name[index]}}
+      </view>
+      <view class="top_bar_items_down">
+        {{item}}
+      </view>
     </view>
     <view class="x_area">
-      <view wx:for="{{table_time}}" wx:key="item" class="top_bar_items">
+      <view wx:for="{{table_time}}" wx:key="item" class="top_bar_items top_bar_items_out">
         <view>
           {{item.s}}
         </view>
@@ -39,7 +42,7 @@
     </view>
     <view class="m_area">
       <view wx:for="{{currretTable}}" wx:key="item" class="m_area_items">
-        <view wx:for="{{item}}" wx:for-key="row_item" wx:for-index="idx" class="top_bar_items">
+        <view class="{{['top_bar_items' ,currretTable[index][idx].name!='None'?'exist':'notexist']}}" wx:for="{{item}}" wx:for-key="row_item" wx:for-index="idx">
           <view wx:if="{{currretTable[index][idx].name=='None'}}"></view>
           <view wx:else>
             {{currretTable[index][idx].name}}
@@ -47,5 +50,8 @@
         </view>
       </view>
     </view>
+  </view>
+  <view class="endline">
+    <endline></endline>
   </view>
 </view>

@@ -1,14 +1,22 @@
 /* pages/select/select.wxss */
+.backgroundimage {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -999;
+  opacity: 0.98;
+}
+
 .table_grid {
-  /* margin-top: 10vh; */
-  margin-left:1.25vw;
+  margin-top: 7vh;
+  /* margin-left:1.25vw; */
   font-size: small;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .table_area {
   display: grid;
-  grid-template: "a b c d e f g h" 10vh
+  grid-template: "a b c d e f g h" 5vh
                  "x m m m m m m m" 20vh
                  "x m m m m m m m" 20vh
                  "x m m m m m m m" 20vh
@@ -22,28 +30,57 @@
                  "x m m m m m m m" 20vh
                  "x m m m m m m m" 20vh
                  "x m m m m m m m" 20vh
-                 /10vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw
+                 /12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw 12.5vw;
+
+      box-shadow: 1px 1px 3px black;
 }
 
 .top_bar_items {
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  font-weight: bold;
+  background-color: #f5f5f573;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: black solid 1px;
+  border: #c7c7c7 solid 1px;
   margin: 0.5px;
+  border-radius: 3%;
+  box-shadow: 0.5px 0.5px .5px black;
+}
+
+.exist {
+  background-color: #1b4c7450;
   border-radius: 5%;
+  margin: .5vw;
+}
+
+.notexist {
+  background-color: #949b9b8b;
+  border-radius: 5%;
+  margin: .5vw;
+}
+
+.top_bar_items.top_bar_items_out {
+ border: unset; 
+ background-color:unset;
+ background-color: #00000073;
+ box-shadow: unset;
 }
 
 .x_area {
   grid-area: x;
   /* background-color: greenyellow; */
   display: grid;
-  grid-template-rows: repeat(12,1fr);
+  grid-template-rows: repeat(11,1fr);
+  /* background-color: #9e9e9e73; */
 }
 
 .m_area {
+  margin-top: .5vw;
+  margin-left: .5vw;
   grid-area: m;
   /* background-color: burlywood; */
   display: grid;
@@ -52,7 +89,7 @@
 
 .m_area .m_area_items {
   display: grid;
-  grid-template-rows: repeat(12,1fr);
+  grid-template-rows: repeat(11,1fr);
 }
 
 .lever {
@@ -61,6 +98,21 @@
   /* background-color: cyan; */
   display: flex;
   flex-direction: row;
+  /* margin-top: 5vh; */
+  position: fixed;
+  bottom: 2vh;
+  left: calc((100vw - 40vw) / 2);
+  z-index: 10;
+  background-color: rgba(53, 51, 51, 0.438);
+  width: 40vw;
+  height: 7vh;
+  border-radius: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+.endline {
+  /* height: 5vh; */
   margin-top: 5vh;
 }
 

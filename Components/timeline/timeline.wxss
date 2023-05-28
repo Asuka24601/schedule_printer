@@ -1,4 +1,4 @@
-/* Components/timeline.wxss */
+/* Components/timeline/timeline.wxss */
 
 .list {
   display: flex;
@@ -105,4 +105,3 @@
   height: 25px;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAJxJREFUSEtjZKAxYKSx+QyjFhAM4dEgGmlB5ODgIPD9+3dDTk7O8wcOHPiA7n9LS0vDP3/+/D99+vQFdDlcelFSkYWFRdH///8F/v///+HUqVN9yIaADP/3718gSIyJiWn98ePHzyPL49KL1QJGRsYPJ06cIMsCdL0oFhATRCBXo7seJEZUEBFMc2QoGM3JBANtNIhGg4hgCBBUAABkoGIZ5omUIAAAAABJRU5ErkJggg==');
 }
-

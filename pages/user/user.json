@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "timeline":"/Components/timeline"
+    "timeline":"/Components/timeline/timeline",
+    "v-endline":"/Components/endline/endline",
+    "v-photo":"/Components/v-photo/v-photo",
+    "v-text":"/Components/v-text/v-text"
   }
 }

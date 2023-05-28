@@ -34,7 +34,7 @@ Page({
       following: 31,
       followers: 59,
       moments: 3367,
-      wx_id:"",
+      wx_id: "",
     },
     timeline_len: 0,
     timer: "",
@@ -77,7 +77,7 @@ Page({
     wx.request({
       url: 'http://localhost:8888/', //请求的服务器地址
       data: {
-        user_id:'1',
+        user_id: '1',
       }, //请求参数
       method: 'GET', //发送请求的方法
       header: { //请求头
@@ -88,15 +88,17 @@ Page({
         const data = res.data;
         console.log(data);
         self.setData({
-          userInfo:data,
+          userInfo: data,
         })
       }
     });
+
+    this.getItemHeight();
   },
 
   getGreeting() {
     const greeting_ = this.data.greetings.seasons.summer;
-    
+
     const len = (100 / 21 * 15 / (greeting_.length)) * 0.9;
     this.setData({
       greeting: greeting_,
@@ -167,36 +169,31 @@ Page({
     this.setData({
       swiper_ops: temp,
     })
+    this.getItemHeight();
   },
 
   onTouchMove(e) {
     // console.log(e)
-    return;
+    let temp = this.data.swiper_ops;
+    temp.index = e.detail.current;
+    this.setData({
+      swiper_ops: temp,
+    })
+    this.getItemHeight();
   },
 
-  getTimelineLen(e) {
-    // const item = e.detail;
-    wx.createSelectorQuery().select('#timeline').boundingClientRect(res => {
-      // console.log(res)
+  getItemHeight() {
+    const idx = this.data.swiper_ops.index;
+    const id_ = ["#timeline", "#v-photo", "#v-text"];
+    wx.createSelectorQuery().select(id_[idx]).boundingClientRect(res => {
+      // console.log(res);
       this.setData({
-      timeline_height: res.height+60,
-    })
-    }).exec(resc=> {
+        timeline_height: res.height + 60,
+      })
+    }).exec(resc => {
       // console.log(resc);
     });
   },
-
-  // submit: function (e) {
-  //   wx.request({
-  //       method: 'POST',
-
-  //       url: 'http://localhost:8888/',
-
-  //       data: e.detail.value,
-  //       success: function (res) {
-  //           console.log(res)
-  //       }
-  //   })
 
 
 })

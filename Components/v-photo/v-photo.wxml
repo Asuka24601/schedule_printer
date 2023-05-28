@@ -1,0 +1,15 @@
+<!--Components/v-photo/v-photo.wxml-->
+<!-- <text>Components/v-photo/v-photo.wxml</text> -->
+<view class="container">
+  <view class="photo_main">
+    <view class="photo_cent" wx:for="{{userPhoto}}" wx:key="item" wx:for-index="index">
+      <view class="photo_text">
+        {{photoRealtime[index][0]}}
+      </view>
+      <view class="photo_box" wx:for="{{item.imgs}}" wx:for-item="item_img" wx:for-index="item_index" data-id='{{index}}' data-url='{{item_img}}'>
+        <image src="{{item_img}}" mode="heightFix" />
+      </view>
+      <view class="bar"></view>
+    </view>
+  </view>
+</view>

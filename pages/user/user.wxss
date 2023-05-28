@@ -300,6 +300,7 @@
   /* min-height: 50vh; */
   margin: auto -3vw auto auto;
   overflow: visible;
+  transition:ease-in-out 0.75s;
 }
 .swip .vi_item {
   width: 100vw;

@@ -80,23 +80,21 @@
           <view class="bar">
           </view>
 
-          <swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}" current="{{swiper_ops.index}}"  style="min-height:{{timeline_height}}px">
-            <swiper-item class="vi_item" catchtouchmove='onTouchMove'>
-              <timeline id="timeline" userinfo="{{userInfo}}" binditemlen="getTimelineLen"></timeline>
+          <swiper class="swip" indicator-dots="{{swiper_ops.indicatorDots}}" autoplay="{{swiper_ops.autoplay}}" interval="{{swiper_ops.interval}}" duration="{{swiper_ops.duration}}" current="{{swiper_ops.index}}" bindanimationfinish="onTouchMove" style="min-height:{{timeline_height}}px">
+            <swiper-item class="vi_item" >
+              <timeline id="timeline" userinfo="{{userInfo}}"></timeline>
             </swiper-item>
-            <swiper-item class="vi_item" catchtouchmove='onTouchMove'>
-              1
+            <swiper-item class="vi_item" >
+              <v-photo id="v-photo" userinfo="{{userInfo}}"></v-photo>
             </swiper-item>
-            <swiper-item class="vi_item" catchtouchmove='onTouchMove'>
-              2
+            <swiper-item class="vi_item" >
+              <v-text id="v-text" userinfo="{{userInfo}}"></v-text>
             </swiper-item>
           </swiper>
-          <view>
-          再往下滑就不礼貌了...
-          </view>
         </view>
       </view>
     </view>
+    <v-endline id="endline"></v-endline>
   </view>
 
   <view class="belowInterface">

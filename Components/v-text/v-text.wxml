@@ -1,0 +1,15 @@
+<!--Components/v-text/v-text.wxml-->
+<!-- <text>Components/v-text/v-text.wxml</text> -->
+<view class="container">
+  <view class="text_main">
+    <view class="text_cent" wx:for="{{userText}}" wx:key="item" wx:for-index="index">
+      <view class="text_text">
+        {{textRealtime[index][0]}}
+      </view>
+      <view class="text_text cent_text">
+        {{item.text}}
+      </view>
+      <view class="bar"></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+/* Components/v-photo/v-photo.wxss */
+.bar {
+  width: 100%;
+  height: 2px;
+  background-color: gray;
+  opacity: 0.3;
+  margin-top: 1.5vh;
+}
+
+.photo_main {
+  padding: unset;
+  margin: unset;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo_cent {
+  width: 90vw;
+  margin-bottom: 3vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.photo_box {
+  width: fit-content;
+  /* height: auto; */
+  margin: 0.5vw;
+}
+
+.photo_box>image {
+  height: 25vh;
+  width: auto;
+}
+
+.photo_text {
+  color: black;
+  font-weight: bold;
+  font-family: 'Centaur','Segoe UI Emoji';
+  /* font-size: 1.1rem; */
+  font-size: x-large;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 2vh;
+  padding: 1vh 5vw 2vh 1vw;
+}

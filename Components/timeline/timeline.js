@@ -1,6 +1,6 @@
 // Components/timeline.js
 
-const {timestampToDate} = require("../miniprogram_npm/date-str-timestamp/index");
+const {timestampToDate} = require("../../miniprogram_npm/date-str-timestamp/index");
 
 Component({
   /**
@@ -55,17 +55,17 @@ Component({
         userTimeline:timelineList,
       })
     },
-    sentLength2father() {
-      const len = this.data.userTimeline.length;
-      let nl = 0;
-      let hl = 0;
-      for(let i =0; i< len;i++) {
-        if (this.data.userTimeline[i].imgs.length>0) hl+=1
-        else nl+=1;
-      }
-      this.triggerEvent("itemlen",{nl,hl});
-    }
-  },
+  //   sentLength2father() {
+  //     const len = this.data.userTimeline.length;
+  //     let nl = 0;
+  //     let hl = 0;
+  //     for(let i =0; i< len;i++) {
+  //       if (this.data.userTimeline[i].imgs.length>0) hl+=1
+  //       else nl+=1;
+  //     }
+  //     this.triggerEvent("itemlen",{nl,hl});
+  //   }
+    },
 
   lifetimes: {
     attached: function() {
@@ -74,7 +74,7 @@ Component({
       this.setData({
         userInfo:{name:this.properties.userinfo.name}
       })
-      this.sentLength2father();
+      // this.sentLength2father();
     },
     detached: function() {
       // 在组件实例被从页面节点树移除时执行

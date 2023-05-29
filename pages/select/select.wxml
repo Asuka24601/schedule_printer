@@ -18,7 +18,12 @@
 </view>
 
 <view class="container">
-  <view class="table_grid table_area" style="grid-template: {{style_temlpate}};">
+  <view class="title_text">
+    <view class="line_bar">
+      {{title_text}}
+    </view>
+  </view>
+  <view class="table_grid table_area" style="grid-template: {{style_template}};">
     <view class="top_bar_items top_bar_items_out">
       {{this_week}}
     </view>
@@ -45,7 +50,12 @@
         <view class="{{['top_bar_items' ,currretTable[index][idx].name!='None'?'exist':'notexist']}}" wx:for="{{item}}" wx:for-key="row_item" wx:for-index="idx">
           <view wx:if="{{currretTable[index][idx].name=='None'}}"></view>
           <view wx:else>
-            {{currretTable[index][idx].name}}
+            <view>
+              {{currretTable[index][idx].name}}
+            </view>
+            <view>
+              {{currretTable[index][idx].location}}@{{currretTable[index][idx].teacher}}
+            </view>
           </view>
         </view>
       </view>

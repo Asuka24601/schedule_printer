@@ -7,8 +7,23 @@
   opacity: 0.98;
 }
 
+.title_text {
+  padding-left: 10vw;
+  height: 15vh;
+  line-height: 15vh;
+}
+
+.line_bar {
+  color: white;
+  font-style: "等线";
+  font-weight: bold;
+  font-size: xx-large;
+  height: 7.5vh;
+  text-shadow: 1px 1px 1px black;
+}
+
 .table_grid {
-  margin-top: 7vh;
+  /* margin-top: 11vh; */
   /* margin-left:1.25vw; */
   font-size: small;
   font-family: Georgia, 'Times New Roman', Times, serif;

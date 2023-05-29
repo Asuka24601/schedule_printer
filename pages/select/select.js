@@ -12,7 +12,8 @@ Page({
     images: {
       backgroundImg: "/static/image/bitch.jpg",
     },
-    style_temlpate: "",
+    title_text:"",
+    style_template: "",
     week_day: [],
     o_week_day: [],
     week_name: ["Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"],
@@ -93,6 +94,18 @@ Page({
     ],
     class_table: [],
     currretTable: [],
+  },
+
+  getTitleText() {
+    const y = (new Date()).getFullYear();
+    const m = (new Date()).getMonth();
+
+    const str = `${y}，${(m>=7 && m<2)?'上':'下'}学期。`;
+
+    this.setData({
+      title_text:str,
+    });
+
   },
 
   getTable() {
@@ -313,19 +326,22 @@ Page({
     const wd = ["05/29", "05/30", "05/31", "06/01", "06/02", "06/03", "06/04"];
     this.setData({
       week_day: wd,
-      o_week_day: wd,
-    })
+      o_week_day: Array.from(wd),
+    });
+    // console.log(wd);
   },
 
   setWeekDay(idx) {
-    let owd = this.data.week_day;
+    let owd = [];
     const isP = leapyear.default.leapyear;
     const b = isP((new Date()).getFullYear());
 
     if (idx == 0) {
       owd = this.data.o_week_day;
+      // console.log(owd);
     }
     else if (idx == 1) {
+      owd = this.data.week_day;
       let tmp = owd[0].split('/');
       let m = parseInt(tmp[0]);
       let d = parseInt(tmp[1]);
@@ -347,7 +363,7 @@ Page({
       }
     }
     else {
-      
+      owd = this.data.week_day;
       for (let i = 7; i >= 1; i--) {
         let tmp = owd[i-1].split('/');
       let m = parseInt(tmp[0]);
@@ -366,7 +382,7 @@ Page({
       }
     }
 
-    console.log(owd);
+    // console.log(owd);
     this.setData({
       week_day: owd,
     })
@@ -390,9 +406,8 @@ Page({
     // console.log(style_temlpate);
 
     this.setData({
-      style_temlpate: style_temlpate_,
+      style_template: style_temlpate_,
     })
-
   },
 
   intoleft() {
@@ -435,6 +450,7 @@ Page({
   onLoad(options) {
     this.getTable();
     this.getWeekDay();
+    this.getTitleText();
   },
 
   /**
